@@ -1,3 +1,1 @@
-"# Stopwatch-app" 
-"# Stopwatch-app" 
-"# Stopwatch-app" 
+A Python GUI Stopwatch project I made with Tkinter.

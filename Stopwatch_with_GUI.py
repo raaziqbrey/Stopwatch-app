@@ -36,13 +36,13 @@ class Stopwatch():
  
     def startStopWatch(self, event=None):
         if self.isRunning == False:
-            self.startTime = time.time()                                                                                                                                
+            self.startTime = time.time() - self.elapsedTime                                                                                                                                 
             self.isRunning = True
 
             self.root.after(1000, self.logWatchTime)
         else:
             self.isRunning = False
-            self.elapsedTime += (time.time() - self.startTime)
+            self.root.after(1000, self.logWatchTime)
 
     def resetWatch(self, event=None):
         self.elapsedTime = 0
@@ -53,8 +53,11 @@ class Stopwatch():
     def logWatchTime(self):
         totalTime = self.elapsedTime
         if self.isRunning:
-            totalTime += time.time() - self.startTime
+            totalTime = time.time() - self.startTime
             self.root.after(1000, self.logWatchTime)
+        else:
+            totalTime = self.elapsedTime
+
         self.hours = int(totalTime // 3600)
         self.minutes = int((totalTime % 3600) / 60)
         self.seconds = int(totalTime % 60)

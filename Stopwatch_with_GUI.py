@@ -42,7 +42,7 @@ class Stopwatch():
             self.root.after(1000, self.logWatchTime)
         else:
             self.isRunning = False
-            self.root.after(1000, self.logWatchTime)
+            self.elapsedTime = time.time() - self.startTime
 
     def resetWatch(self, event=None):
         self.elapsedTime = 0
@@ -50,8 +50,7 @@ class Stopwatch():
         self.time_display.config(text=f"{0:02}:{0:02}:{0:02}")
         self.startTime = None
 
-    def logWatchTime(self):
-        totalTime = self.elapsedTime
+    def logWatchTime(self): 
         if self.isRunning:
             totalTime = time.time() - self.startTime
             self.root.after(1000, self.logWatchTime)

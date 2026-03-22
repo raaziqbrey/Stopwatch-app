@@ -36,7 +36,7 @@ class Stopwatch():
  
     def startStopWatch(self, event=None):
         if self.isRunning == False:
-            self.startTime = time.time()
+            self.startTime = time.time()                                                                                                                                
             self.isRunning = True
 
             self.root.after(1000, self.logWatchTime)
